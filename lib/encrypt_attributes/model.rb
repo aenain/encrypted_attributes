@@ -1,10 +1,10 @@
-require "encrypted_attributes"
+require "encrypt_attributes"
 
-module EncryptedAttributes
+module EncryptAttributes
   module Model
     def self.included(base)
       base.class_eval do
-        include EncryptedAttributes.find_adapter(base)
+        include EncryptAttributes.find_adapter(base)
       end
       base.extend(Macros)
     end

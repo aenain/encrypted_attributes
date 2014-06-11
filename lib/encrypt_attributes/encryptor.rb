@@ -1,8 +1,8 @@
 require "active_support/core_ext/module/attribute_accessors"
 require "active_support/message_encryptor"
-require "encrypted_attributes"
+require "encrypt_attributes"
 
-module EncryptedAttributes
+module EncryptAttributes
   class Encryptor
     cattr_accessor :secret
 

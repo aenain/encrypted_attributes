@@ -1,4 +1,4 @@
-module EncryptedAttributes
+module EncryptAttributes
   module Macros
     def encrypt_attrs(*attr_names)
       mod = Module.new

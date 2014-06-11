@@ -9,7 +9,7 @@ module EncryptorHelpers
   end
 
   def encrypt(value)
-    encryptor = EncryptedAttributes::Encryptor.new
+    encryptor = EncryptAttributes::Encryptor.new
     encryptor.class.secret ||= VALID_SECRET
     encryptor.encrypt(value)
   end

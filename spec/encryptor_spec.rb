@@ -1,11 +1,11 @@
 require "spec_helper"
-require "encrypted_attributes/encryptor"
+require "encrypt_attributes/encryptor"
 
 def set_valid_encryptor_secret
-  EncryptedAttributes::Encryptor.secret = EncryptorHelpers::VALID_SECRET
+  EncryptAttributes::Encryptor.secret = EncryptorHelpers::VALID_SECRET
 end
 
-describe EncryptedAttributes::Encryptor do
+describe EncryptAttributes::Encryptor do
   include MessageEncryptorHelpers
 
   it { should respond_to(:secret) }

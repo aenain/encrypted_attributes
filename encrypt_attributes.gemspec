@@ -2,11 +2,11 @@ ENV["RACK_ENV"] ||= "test"
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'encrypted_attributes/version'
+require 'encrypt_attributes/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "encrypted_attributes"
-  spec.version       = EncryptedAttributes::VERSION
+  spec.name          = "encrypt_attributes"
+  spec.version       = EncryptAttributes::VERSION
   spec.authors       = ["Artur Hebda"]
   spec.email         = ["arturhebda@gmail.com"]
   spec.summary       = "Dead-simple attributes encryption for ORMs"

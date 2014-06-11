@@ -1,6 +1,6 @@
 test:
   sessions:
     default:
-      database: encrypted_attributes_test
+      database: encrypt_attributes_test
       hosts:
         - localhost:27017

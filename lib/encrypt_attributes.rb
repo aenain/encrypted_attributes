@@ -1,6 +1,6 @@
 require "active_support/core_ext/object/try"
 
-module EncryptedAttributes
+module EncryptAttributes
   class MissingAdapterError < StandardError; end
 
   module_function
@@ -22,8 +22,8 @@ module EncryptedAttributes
   end
 end
 
-require "encrypted_attributes/version"
-require "encrypted_attributes/macros"
-require "encrypted_attributes/encryptor"
-require "encrypted_attributes/model"
-require "encrypted_attributes/adapters"
+require "encrypt_attributes/version"
+require "encrypt_attributes/macros"
+require "encrypt_attributes/encryptor"
+require "encrypt_attributes/model"
+require "encrypt_attributes/adapters"

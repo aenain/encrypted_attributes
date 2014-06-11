@@ -1,4 +1,4 @@
-module EncryptedAttributes
+module EncryptAttributes
   module Adapters
     module ActiveRecord
       include Base
@@ -6,5 +6,5 @@ module EncryptedAttributes
   end
 
   self.register_adapter("ActiveRecord::Base",
-    EncryptedAttributes::Adapters::ActiveRecord)
+    EncryptAttributes::Adapters::ActiveRecord)
 end

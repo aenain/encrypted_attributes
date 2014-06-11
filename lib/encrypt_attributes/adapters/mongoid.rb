@@ -1,4 +1,4 @@
-module EncryptedAttributes
+module EncryptAttributes
   module Adapters
     module Mongoid
       include Base
@@ -6,5 +6,5 @@ module EncryptedAttributes
   end
 
   self.register_adapter("Mongoid::Document",
-    EncryptedAttributes::Adapters::Mongoid)
+    EncryptAttributes::Adapters::Mongoid)
 end

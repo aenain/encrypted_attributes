@@ -1,11 +1,11 @@
 require "spec_helper"
 require "support/connections/mongoid"
 
-require "encrypted_attributes/model"
+require "encrypt_attributes/model"
 
 class MongoidUser
   include Mongoid::Document
-  include EncryptedAttributes::Model
+  include EncryptAttributes::Model
 
   field :secret, type: String
 

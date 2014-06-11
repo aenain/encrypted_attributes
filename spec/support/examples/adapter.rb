@@ -70,7 +70,7 @@ shared_examples_for "adapter" do
   let(:encryptor) { double(encrypt: encrypted, decrypt: decrypted) }
 
   before(:each) do
-    allow(EncryptedAttributes::Encryptor)
+    allow(EncryptAttributes::Encryptor)
       .to receive(:new).and_return(encryptor)
   end
 

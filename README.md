@@ -22,7 +22,7 @@ Provided functionality is sufficient for storing oauth tokens and secrets that a
 
 Add this line to your application's Gemfile:
 
-    gem 'encrypted_attributes'
+    gem 'encrypt_attributes'
 
 And then execute:
 
@@ -30,18 +30,18 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install encrypted_attributes
+    $ gem install encrypt_attributes
 
 ## Usage
 
-Provide a secret for `Encryptor`. Create a model with fields of type `string` or `text`, include `EncryptedAttributes::Model` and call `encrypt_attrs(*attrs)`.
+Provide a secret for `Encryptor`. Create a model with fields of type `string` or `text`, include `EncryptAttributes::Model` and call `encrypt_attrs(*attrs)`.
 
 ### Secret
 
 If you are using Rails, secret by default will be set to `Rails.application.secrets.secret_key_base`. If you want to use a different secret, create an initializer:
 
     # config/initializers/encrypted_attributes.rb
-    EncryptedAttributes::Encryptor.secret = "<super-secure-key>"
+    EncryptAttributes::Encryptor.secret = "<super-secure-key>"
 
 If you do not use Rails, set the secret before any encryption is done, otherwise an error will be thrown.
 
@@ -64,7 +64,7 @@ end
 ```
 # app/models/authentication.rb
 class Authentication < ActiveRecord::Base
-  include EncryptedAttributes::Model
+  include EncryptAttributes::Model
   encrypt_attrs :token, :secret
 end
 ```
@@ -76,7 +76,7 @@ end
 class Authentication
   include Mongoid::Document
   # it is important to include Mongoid::Document before
-  include EncryptedAttributes::Model
+  include EncryptAttributes::Model
 
   field :token,  type: String
   field :secret, type: String
@@ -91,7 +91,7 @@ If you want to define custom accessors for encrypted attributes, create methods 
 
     # app/models/authentication.rb
     class Authentication < ActiveRecord::Base
-      include EncryptedAttributes::Model
+      include EncryptAttributes::Model
       encrypt_attrs :token, :secret
 
       def secret

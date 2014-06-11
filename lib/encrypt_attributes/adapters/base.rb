@@ -1,4 +1,4 @@
-module EncryptedAttributes
+module EncryptAttributes
   module Adapters
     module Base
       def read_encrypted_attribute(attr_name)
