@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.version       = EncryptedAttributes::VERSION
   spec.authors       = ["Artur Hebda"]
   spec.email         = ["arturhebda@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = "Dead-simple attributes encryption for ORMs"
+  spec.description   = "This gem provides a dead-simple encryption of string / text attributes of ActiveRecord and Mongoid models. Encryptor internally uses ActiveSupport::MessageEncryptor and therefore it uses 'aes-256-cbc' cipher by default. Gem does NOT require column with different name. From user perspective encryption is completely transparent - they use decrypted values all the time, but encrypted values are stored in database."
+  spec.homepage      = "https://github.com/aenain/encrypted_attributes"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
