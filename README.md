@@ -1,5 +1,7 @@
 # EncryptedAttributes
 
+[![Build Status](https://travis-ci.org/aenain/encrypted_attributes.svg?branch=master)](https://travis-ci.org/aenain/encrypted_attributes)
+
 This gem provides a dead-simple encryption of string / text attributes of ActiveRecord and Mongoid models.  Encryptor internally uses [ActiveSupport::MessageEncryptor](http://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html) and therefore it uses 'aes-256-cbc' cipher by default. Currently there is no way to pass custom options to the encryptor. Gem does NOT require column with different name. It works just fine without it, but works only with columns of type `string` or `text`. From user perspective encryption is completely transparent - they use decrypted values all the time, but encrypted values are stored in database.
 
 ## ORM Support
