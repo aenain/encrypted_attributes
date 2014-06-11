@@ -43,6 +43,8 @@ If you are using Rails, secret by default will be set to `Rails.application.secr
 
 If you do not use Rails, set the secret before any encryption is done, otherwise an error will be thrown.
 
+### Models
+
 * ActiveRecord
 
     # db/migrate/create_authentications.rb
@@ -75,7 +77,7 @@ If you do not use Rails, set the secret before any encryption is done, otherwise
       encrypt_attrs :token, :secret
     end
 
-## Custom accessors
+### Custom accessors
 
 If you want to define custom accessors for encrypted attributes, create methods you need to override and call `super` to execute encryption / decryption. It will work the same way with all supported ORMs.
 
@@ -96,7 +98,7 @@ If you want to define custom accessors for encrypted attributes, create methods 
       end
     end
 
-## Gotchas
+### Gotchas
 
 Beware that each time encryption is done it returns a different value for the same input argument. Check out the consequences on the example below.
 
@@ -107,6 +109,14 @@ Beware that each time encryption is done it returns a different value for the sa
 ORMs will think that the secret has changed, because after setting a value, it gets encoded and a new value is stored in `attributes`.
 
 ## Running tests
+
+  Before running entire suite, you have to start Mongo DB, create and migrate database for ActiveRecord. Read more about [Mongo installation](http://docs.mongodb.org/manual/installation/).
+  To prepare database:
+
+    bundle exec rake db:create
+    bundle exec rake db:migrate RACK_ENV=test
+
+  To run tests:
 
     bundle exec rspec
 
