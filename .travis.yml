@@ -5,6 +5,5 @@ services:
   - mongodb
 before_script:
   - cp config/database.yml.travis config/database.yml
-  - bundle exec rake db:schema:load
 script:
   - bundle exec rspec
