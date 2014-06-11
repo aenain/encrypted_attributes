@@ -47,35 +47,41 @@ If you do not use Rails, set the secret before any encryption is done, otherwise
 
 * ActiveRecord
 
-    # db/migrate/create_authentications.rb
-    class CreateAuthentication < ActiveRecord::Migration
-      def change
-        create_table :authentications, force: true do |t|
-          t.string :token
-          t.string :secret
-        end
-      end
+```
+# db/migrate/create_authentications.rb
+class CreateAuthentication < ActiveRecord::Migration
+  def change
+    create_table :authentications, force: true do |t|
+      t.string :token
+      t.string :secret
     end
+  end
+end
+```
 
-    # app/models/authentication.rb
-    class Authentication < ActiveRecord::Base
-      include EncryptedAttributes::Model
-      encrypt_attrs :token, :secret
-    end
+```
+# app/models/authentication.rb
+class Authentication < ActiveRecord::Base
+  include EncryptedAttributes::Model
+  encrypt_attrs :token, :secret
+end
+```
 
 * Mongoid
 
-    # app/models/authentication.rb
-    class Authentication
-      include Mongoid::Document
-      # it is important to include Mongoid::Document before
-      include EncryptedAttributes::Model
+```
+# app/models/authentication.rb
+class Authentication
+  include Mongoid::Document
+  # it is important to include Mongoid::Document before
+  include EncryptedAttributes::Model
 
-      field :token,  type: String
-      field :secret, type: String
+  field :token,  type: String
+  field :secret, type: String
 
-      encrypt_attrs :token, :secret
-    end
+  encrypt_attrs :token, :secret
+end
+```
 
 ### Custom accessors
 
