@@ -1,5 +1,10 @@
-require "sqlite3"
-require "active_record"
+require "rake"
 
-ActiveRecord::Base.configurations = YAML.load(File.read("config/database.yml"))
-ActiveRecord::Base.establish_connection(:test)
+load File.join(__dir__, '..', '..', '..', 'lib', 'tasks', 'active_record.rake')
+
+if ENV['TRAVIS']
+  Rake::Task["db:create"].invoke
+  Rake::Task["db:schema:load"].invoke
+else
+  ActiveRecord::Base.establish_connection(:test)
+end

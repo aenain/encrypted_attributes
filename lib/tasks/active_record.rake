@@ -1,8 +1,10 @@
 # Excerpt from https://github.com/janko-m/sinatra-activerecord/blob/master/lib/sinatra/activerecord/tasks.rake
-load "active_record/railties/databases.rake"
+require "active_record"
 require "sqlite3"
 
-ActiveRecord::Base.configurations = YAML.load(File.read("config/database.yml"))
+load "active_record/railties/databases.rake"
+
+ActiveRecord::Base.configurations = YAML.load_file("config/database.yml")
 
 ActiveRecord::Tasks::DatabaseTasks.tap do |config|
   config.root                   = Rake.application.original_dir
