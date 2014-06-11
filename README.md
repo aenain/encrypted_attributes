@@ -36,12 +36,12 @@ Provide a secret for `Encryptor`. Create a model with fields of type `string` or
 
 ### Secret
 
-If you are using Rails, create an initializer and use already provided secret:
+If you are using Rails, secret by default will be set to `Rails.application.secrets.secret_key_base`. If you want to use a different secret, create an initializer:
 
     # config/initializers/encrypted_attributes.rb
-    EncryptedAttributes::Encryptor.secret = Rails.application.secrets.secret_key_base
+    EncryptedAttributes::Encryptor.secret = "<super-secure-key>"
 
-If not, set it before any encryption is done, otherwise an error will occur.
+If you do not use Rails, set the secret before any encryption is done, otherwise an error will be thrown.
 
 * ActiveRecord
 
@@ -105,6 +105,10 @@ Beware that each time encryption is done it returns a different value for the sa
     user.secret_changed? # returns true
 
 ORMs will think that the secret has changed, because after setting a value, it gets encoded and a new value is stored in `attributes`.
+
+## Running tests
+
+    bundle exec rspec
 
 ## Contributing
 

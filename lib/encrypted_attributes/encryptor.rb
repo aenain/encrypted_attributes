@@ -6,6 +6,10 @@ module EncryptedAttributes
   class Encryptor
     cattr_accessor :secret
 
+    if defined?(Rails)
+      self.secret ||= Rails.application.secrets.secret_key_base
+    end
+
     def encrypt(value)
       return value if value.to_s.empty?
       message_encryptor.encrypt_and_sign(value)
